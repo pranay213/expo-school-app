@@ -1,0 +1,5 @@
+declare module 'react-native-dotenv' {
+    export const API_URL: string;
+    export const API_KEY: string;
+    // Add any other environment variables you need here
+}
