@@ -3,7 +3,7 @@ name: Debug
 on:
   push:
     branches:
-      - development-branch # Adjust this according to your branch name
+      - main # Adjust this according to your branch name
 
 jobs:
   build:
