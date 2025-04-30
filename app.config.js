@@ -12,6 +12,7 @@ export default {
     newArchEnabled: true,
     ios: {
       supportsTablet: true,
+      bundleIdentifier: "com.pranay.schoolapptracking",
     },
     android: {
       adaptiveIcon: {
