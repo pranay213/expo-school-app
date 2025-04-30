@@ -24,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Prebuild
-        run: npx expo prebuild
+      # - name: Prebuild
+      #   run: npx expo prebuild
 
       - name: Build Android Debug
         run: cd android && ./gradlew assembleDebug
