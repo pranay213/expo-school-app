@@ -2,30 +2,41 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { register, RegisterRequest } from '@/api';
-import { set } from 'lodash';
+import { useDispatch } from 'react-redux';
 
-export default function SignupScreen() {
+import { showError, showSuccess } from '@/utlis/ToastService';
+import { hideLoader, showLoader } from '@/redux/slices/loaderSlice';
+
+const Register = () => {
     const router = useRouter();
+    const dispatch: any = useDispatch(); // Access the dispatch function
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [loading, setLoading] = useState<boolean>(false)
+
 
     const handleSignup = async () => {
         console.log('Signing up:', name, email, password);
         if (!name || !email || !password) {
-            alert('Please fill in all fields');
+            showError('Please fill in all fields');
             return;
         }
-        let postData: RegisterRequest = { name, email, password }
-        setLoading(true)
-        const response = await register(postData)
-        setLoading(false)
-        if (response?.success) {
+        let postData: RegisterRequest = { name, email, password };
+        dispatch(showLoader());
+        try {
+            const response = await dispatch(register(postData));
+            console.log('response', response);
+            if (response?.success) {
+                showSuccess(response?.message || 'Request Success');
+                router.push('/location');
+            }
+        } catch (error) {
 
+        } finally {
+            dispatch(hideLoader());
         }
+    };
 
-    }
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>Create Account</Text>
@@ -126,3 +137,5 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
 });
+
+export default Register

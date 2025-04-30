@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
+import { showError, showSuccess } from '@/utlis/ToastService';
+import { login, register, RegisterRequest } from '@/api';
+import { useDispatch } from 'react-redux';
+import { hideLoader, showLoader } from '@/redux/slices/loaderSlice';
 
 export default function LoginScreen() {
     const router = useRouter();
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const dispatch: any = useDispatch();
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         console.log('Logging in:', email, password);
-        // your login logic here
+        if (!email || !password) {
+            showError('Please fill in all fields');
+            return;
+        }
+        let postData: RegisterRequest = { email, password };
+        dispatch(showLoader());
+        try {
+            const response = await dispatch(login(postData));
+            console.log('response', response);
+            if (response?.success) {
+                showSuccess(response?.message || 'Request Success');
+                router.push('/location');
+            }
+        } catch (error) {
+        } finally {
+            dispatch(hideLoader());
+        }
     };
 
     return (

@@ -1,28 +1,26 @@
-import { store } from '@/redux/store';
-import React from 'react';
-import { View, StatusBar, SafeAreaView, StyleSheet } from 'react-native';
+// app/_layout.tsx
+import { Slot } from 'expo-router';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import { Provider } from 'react-redux';
+import Toast from 'react-native-toast-message';
+import { store } from '@/redux/store';
+import GlobalLoader from '@/components/loader/loader';
 
-type LayoutProps = {
-    children: React.ReactNode;
-};
-
-const _layout: React.FC<LayoutProps> = ({ children }) => {
+export default function Layout() {
     return (
         <SafeAreaView style={styles.container}>
             <Provider store={store}>
-                <StatusBar barStyle="dark-content" hidden />
-                {children}
+                <GlobalLoader />
+                <Slot />
             </Provider>
+            {/* Toast should be outside Slot */}
+            <Toast position="bottom" bottomOffset={60} />
         </SafeAreaView>
     );
-};
+}
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff', // Set a default background color for the layout
     },
 });
-
-export default _layout;
