@@ -1,0 +1,37 @@
+name: Debug
+
+on:
+  push:
+    branches:
+      - main # Adjust this according to your branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js and npm
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Expo CLI
+        run: npm install -g expo-cli
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Prebuild
+        run: npx expo prebuild
+
+      - name: Build Android Debug
+        run: cd android && ./gradlew assembleDebug
+
+      - name: Upload Debug APK to Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
