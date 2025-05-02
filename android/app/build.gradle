@@ -173,11 +173,4 @@ dependencies {
     } else {
         implementation jscFlavor
     }
-    implementation(name: 'OlaMapSdk-1.6.0', ext: 'aar')
-
-    // Add Maplibre dependencies too
-    implementation "org.maplibre.gl:android-sdk:10.0.2"
-    implementation ("org.maplibre.gl:android-plugin-annotation-v9:1.0.0")
-    implementation ("org.maplibre.gl:android-plugin-markerview-v9:1.0.0")
-
 }

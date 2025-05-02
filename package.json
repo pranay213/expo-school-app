@@ -18,6 +18,7 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@maplibre/maplibre-react-native": "^10.1.4",
+    "@netizen-teknologi/react-native-maps-leaflet": "^2.1.1",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
@@ -39,10 +40,12 @@
     "expo-symbols": "~0.2.2",
     "expo-system-ui": "~4.0.9",
     "expo-web-browser": "~14.0.2",
+    "leaflet": "^1.9.4",
     "lodash": "^4.17.21",
     "polyline": "^0.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-native": "0.76.9",
     "react-native-expo-ola-maps": "^1.0.3",
     "react-native-gesture-handler": "~2.20.2",
@@ -55,7 +58,11 @@
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
     "react-redux": "^9.2.0",
-    "socket.io-client": "^4.8.1"
+    "socket.io-client": "^4.8.1",
+    "react-native-mapbox-gl": "^8.6.0-beta.0",
+    "@react-native-mapbox-gl/maps": "^8.6.0-beta.0",
+    "@turf/turf": "^6.5.0",
+    "osrm-text-instructions": "^0.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
