@@ -57,11 +57,7 @@
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
     "react-redux": "^9.2.0",
-    "socket.io-client": "^4.8.1",
-    "@rnmapbox/maps": "^10.0.0",
-    "@react-native-mapbox-gl/maps": "^8.6.0-beta.0",
-    "@turf/turf": "^6.5.0",
-    "osrm-text-instructions": "^0.14.0"
+    "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

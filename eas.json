@@ -13,9 +13,7 @@
         "buildType": "apk"
       },
       "developmentClient": false,
-      "env": {
-        "MAPBOX_DOWNLOADS_TOKEN": ""
-      }
+      "env": {}
     },
     "preview": {
       "distribution": "internal"
