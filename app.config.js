@@ -19,11 +19,6 @@ export default {
         foregroundImage: "./assets/images/adaptive-icon.png",
         backgroundColor: "#ffffff",
       },
-      config: {
-        googleMaps: {
-          apiKey: "AIzaSyDwBzCqC6o8o6h6v6o6o6o6o6o6o6o6o6o",
-        }
-      },
       package: 'com.pranay.schoolapptracking',
     },
     web: {
@@ -45,7 +40,7 @@ export default {
       [
         "@rnmapbox/maps",
         {
-          "RNMapboxMapsVersion": "11.8.0",
+          "RNMapboxMapsVersion": "10.1.38",
           "RNMapboxMapsDownloadToken": "n50VzlfBnZLRmz1HxFR5"
         }
       ],
