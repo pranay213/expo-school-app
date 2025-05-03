@@ -20,7 +20,7 @@ export default {
         backgroundColor: "#ffffff",
         config: {
           googleMaps: {
-            apiKey: "adsfaskfslkjdfl"
+            apiKey: ""
           }
         }
       },
