@@ -18,6 +18,11 @@ export default {
       adaptiveIcon: {
         foregroundImage: "./assets/images/adaptive-icon.png",
         backgroundColor: "#ffffff",
+        config: {
+          googleMaps: {
+            apiKey: "adsfaskfslkjdfl"
+          }
+        }
       },
       package: 'com.pranay.schoolapptracking',
     },
