@@ -39,10 +39,6 @@ export default {
       ],
       [
         "@rnmapbox/maps",
-        {
-          "RNMapboxMapsVersion": "11.0.0",
-          "RNMapboxMapsDownloadToken": "adsfkjasdlfjlk"
-        }
       ],
       [
         "expo-location",
