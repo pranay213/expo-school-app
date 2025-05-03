@@ -39,6 +39,10 @@ export default {
       ],
       [
         "@rnmapbox/maps",
+        {
+          "RNMapboxMapsImpl": "mapbox",
+          "accessToken": "dadsfjaiufiasdjfdsfk"
+        }
       ],
       [
         "expo-location",
