@@ -9,8 +9,8 @@ export default function MapScreen() {
       <MapView
         style={styles.map}
         initialRegion={{
-          latitude: 37.7749,
-          longitude: -122.4194,
+          latitude: 17,
+          longitude: 78,
           latitudeDelta: 0.1,
           longitudeDelta: 0.1,
         }}
@@ -21,7 +21,7 @@ export default function MapScreen() {
           flipY={false}
         />
         <Marker
-          coordinate={{ latitude: 37.7749, longitude: -122.4194 }}
+          coordinate={{ latitude: 17, longitude: 78 }}
           title="San Francisco"
         />
       </MapView>
