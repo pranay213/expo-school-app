@@ -40,7 +40,8 @@ export default {
       [
         "@rnmapbox/maps",
         {
-          "RNMapboxMapsImpl": "maplibre"
+          "RNMapboxMapsVersion": "11.0.0",
+          "RNMapboxMapsDownloadToken": "adsfkjasdlfjlk"
         }
       ],
       [
