@@ -18,10 +18,10 @@ export default {
       adaptiveIcon: {
         foregroundImage: "./assets/images/adaptive-icon.png",
         backgroundColor: "#ffffff",
-        config: {
-          googleMaps: {
-            apiKey: ""
-          }
+      },
+      config: {
+        googleMaps: {
+          apiKey: "AIzaSyDwBzCqC6o8o6h6v6o6o6o6o6o6o6o6o6o",
         }
       },
       package: 'com.pranay.schoolapptracking',
@@ -42,16 +42,28 @@ export default {
           backgroundColor: "#ffffff",
         },
       ],
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsVersion": "11.8.0",
+          "RNMapboxMapsDownloadToken": "n50VzlfBnZLRmz1HxFR5"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Show current location on map."
+        }
+      ]
     ],
     experiments: {
       typedRoutes: true,
     },
     extra: {
       eas: {
-        projectId: 'a805a44e-9c80-402a-8edb-e7201d3c81ad',  // <-- Add your projectId here
+        projectId: 'a805a44e-9c80-402a-8edb-e7201d3c81ad',
       },
-      // You can add environment variables or any extra config here
-      API_URL: process.env.API_URL, // example of how to add .env variables
+      API_URL: process.env.API_URL,
     },
   },
 };
