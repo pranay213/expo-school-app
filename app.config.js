@@ -42,7 +42,6 @@ export default {
           backgroundColor: "#ffffff",
         },
       ],
-      "@maplibre/maplibre-react-native"
     ],
     experiments: {
       typedRoutes: true,
