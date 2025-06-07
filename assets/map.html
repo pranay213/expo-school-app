@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([20.813, 82.547], 6);
+
+        // Add your tile layer
+        L.tileLayer('https://tiles.kodam.in/styles/osm-bright/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© Kodam.in'
+        }).addTo(map);
+
+        // Add current location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const marker = L.marker([pos.coords.latitude, pos.coords.longitude])
+                        .addTo(map)
+                        .bindPopup("Your Location");
+                    map.setView([pos.coords.latitude, pos.coords.longitude], 13);
+                },
+                (err) => console.warn('Geolocation error:', err)
+            );
+        }
+
+        // Function to handle messages from React Native
+        function receiveMessage(event) {
+            if (event.data.type === 'route') {
+                // Add route to map
+                L.polyline(event.data.coordinates).addTo(map);
+            }
+        }
+
+        window.addEventListener('message', receiveMessage);
+    </script>
+</body>
+
+</html>

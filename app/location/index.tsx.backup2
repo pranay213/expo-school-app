@@ -1,0 +1,759 @@
+import React, { useState, useEffect, useRef } from 'react';
+import {
+    StyleSheet,
+    View,
+    Text,
+    TouchableOpacity,
+    ScrollView,
+    SafeAreaView,
+    Platform,
+    StatusBar,
+    Image
+} from 'react-native';
+import MapboxGL from '@rnmapbox/maps';
+import { MaterialIcons, FontAwesome5, Ionicons } from '@expo/vector-icons';
+
+// Replace with your actual API tokens
+MapboxGL.setAccessToken('YOUR_MAPBOX_ACCESS_TOKEN');
+const MAPTILER_API_KEY = 'n50VzlfBnZLRmz1HxFR5';
+const OPENROUTE_API_KEY = 'YOUR_OPENROUTE_API_KEY';
+
+// Sample bus data
+const BUSES = [
+    {
+        id: 'bus-001',
+        name: 'Bus #1',
+        route: 'North Route',
+        driver: 'John Smith',
+        status: 'on-route', // on-route, delayed, completed
+        coordinates: [-73.985428, 40.748817],
+        nextStop: 'Oak Elementary',
+        estimatedArrival: '3:45 PM',
+        capacity: 42,
+        occupancy: 38,
+        speed: 25,
+        students: ['Emma W.', 'James K.', 'Sofia L.', 'Michael R.']
+    },
+    {
+        id: 'bus-002',
+        name: 'Bus #2',
+        route: 'South Route',
+        driver: 'Sarah Johnson',
+        status: 'delayed', // on-route, delayed, completed
+        coordinates: [-73.995428, 40.738817],
+        nextStop: 'Maple Middle School',
+        estimatedArrival: '4:05 PM',
+        capacity: 48,
+        occupancy: 45,
+        speed: 18,
+        students: ['David T.', 'Anna P.', 'Robert L.']
+    },
+    {
+        id: 'bus-003',
+        name: 'Bus #3',
+        route: 'East Route',
+        driver: 'Miguel Rodriguez',
+        status: 'completed', // on-route, delayed, completed
+        coordinates: [-73.975428, 40.728817],
+        nextStop: 'None - Route Completed',
+        estimatedArrival: 'Arrived',
+        capacity: 42,
+        occupancy: 0,
+        speed: 0,
+        students: []
+    }
+];
+
+// School locations
+const SCHOOLS = [
+    {
+        id: 'school-001',
+        name: 'Oak Elementary School',
+        coordinates: [-73.984428, 40.748217],
+    },
+    {
+        id: 'school-002',
+        name: 'Maple Middle School',
+        coordinates: [-73.994428, 40.738217],
+    },
+];
+
+const SchoolBusTrackingApp = () => {
+    const [selectedBus, setSelectedBus] = useState(null);
+    const [showBusDetails, setShowBusDetails] = useState(false);
+    const [activeTab, setActiveTab] = useState('map');
+    const [mapCenter, setMapCenter] = useState([-73.985428, 40.748817]);
+    const [zoomLevel, setZoomLevel] = useState(12);
+    const mapRef = useRef(null);
+
+    useEffect(() => {
+        if (selectedBus) {
+            setMapCenter(selectedBus.coordinates);
+            setZoomLevel(14);
+        }
+    }, [selectedBus]);
+
+    const handleBusSelect = (bus) => {
+        setSelectedBus(bus);
+        setShowBusDetails(true);
+    };
+
+    const renderBusMarkers = () => {
+        return BUSES.map(bus => (
+            <MapboxGL.PointAnnotation
+                key={bus.id}
+                id={bus.id}
+                coordinate={bus.coordinates}
+                onSelected={() => handleBusSelect(bus)}
+            >
+                <View style={styles.markerContainer}>
+                    <View style={[styles.marker, getStatusColor(bus.status)]}>
+                        <FontAwesome5 name="bus" size={16} color="#FFF" />
+                    </View>
+                </View>
+                <MapboxGL.Callout title={bus.name} />
+            </MapboxGL.PointAnnotation>
+        ));
+    };
+
+    const renderSchoolMarkers = () => {
+        return SCHOOLS.map(school => (
+            <MapboxGL.PointAnnotation
+                key={school.id}
+                id={school.id}
+                coordinate={school.coordinates}
+            >
+                <View style={styles.schoolMarkerContainer}>
+                    <View style={styles.schoolMarker}>
+                        <Ionicons name="school" size={16} color="#FFF" />
+                    </View>
+                </View>
+                <MapboxGL.Callout title={school.name} />
+            </MapboxGL.PointAnnotation>
+        ));
+    };
+
+    const getStatusColor = (status) => {
+        switch (status) {
+            case 'on-route':
+                return { backgroundColor: '#34C759' };
+            case 'delayed':
+                return { backgroundColor: '#FF9500' };
+            case 'completed':
+                return { backgroundColor: '#8E8E93' };
+            default:
+                return { backgroundColor: '#007AFF' };
+        }
+    };
+
+    const getStatusText = (status) => {
+        switch (status) {
+            case 'on-route':
+                return 'On Route';
+            case 'delayed':
+                return 'Delayed';
+            case 'completed':
+                return 'Completed';
+            default:
+                return status;
+        }
+    };
+
+    const renderBusItem = (bus) => {
+        return (
+            <TouchableOpacity
+                key={bus.id}
+                style={styles.busItem}
+                onPress={() => handleBusSelect(bus)}
+            >
+                <View style={styles.busItemHeader}>
+                    <View style={styles.busIconContainer}>
+                        <FontAwesome5 name="bus" size={20} color="#007AFF" />
+                        <View style={[styles.statusIndicator, getStatusColor(bus.status)]} />
+                    </View>
+                    <View style={styles.busInfo}>
+                        <Text style={styles.busName}>{bus.name}</Text>
+                        <Text style={styles.routeName}>{bus.route}</Text>
+                    </View>
+                    <View style={styles.busStatus}>
+                        <Text style={[styles.statusText, getStatusColor(bus.status)]}>
+                            {getStatusText(bus.status)}
+                        </Text>
+                    </View>
+                </View>
+                <View style={styles.busItemDetails}>
+                    <View style={styles.detailRow}>
+                        <MaterialIcons name="location-on" size={16} color="#666" />
+                        <Text style={styles.detailText}>Next: {bus.nextStop}</Text>
+                    </View>
+                    <View style={styles.detailRow}>
+                        <MaterialIcons name="access-time" size={16} color="#666" />
+                        <Text style={styles.detailText}>ETA: {bus.estimatedArrival}</Text>
+                    </View>
+                </View>
+            </TouchableOpacity>
+        );
+    };
+
+    const renderBusDetailModal = () => {
+        if (!selectedBus || !showBusDetails) return null;
+
+        return (
+            <View style={styles.modalContainer}>
+                <View style={styles.modalContent}>
+                    <View style={styles.modalHeader}>
+                        <Text style={styles.modalTitle}>{selectedBus.name} Details</Text>
+                        <TouchableOpacity
+                            style={styles.closeButton}
+                            onPress={() => setShowBusDetails(false)}
+                        >
+                            <MaterialIcons name="close" size={24} color="#007AFF" />
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.busDetailsContainer}>
+                        <View style={styles.busStatusHeader}>
+                            <FontAwesome5 name="bus" size={32} color="#007AFF" />
+                            <View style={styles.busHeaderInfo}>
+                                <Text style={styles.busDetailName}>{selectedBus.name}</Text>
+                                <View style={styles.statusBadge}>
+                                    <Text style={styles.statusBadgeText}>
+                                        {getStatusText(selectedBus.status)}
+                                    </Text>
+                                </View>
+                            </View>
+                        </View>
+
+                        <View style={styles.detailSection}>
+                            <Text style={styles.sectionTitle}>Route Information</Text>
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>Route:</Text>
+                                <Text style={styles.detailValue}>{selectedBus.route}</Text>
+                            </View>
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>Next Stop:</Text>
+                                <Text style={styles.detailValue}>{selectedBus.nextStop}</Text>
+                            </View>
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>ETA:</Text>
+                                <Text style={styles.detailValue}>{selectedBus.estimatedArrival}</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.detailSection}>
+                            <Text style={styles.sectionTitle}>Bus Information</Text>
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>Driver:</Text>
+                                <Text style={styles.detailValue}>{selectedBus.driver}</Text>
+                            </View>
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>Capacity:</Text>
+                                <Text style={styles.detailValue}>{selectedBus.occupancy}/{selectedBus.capacity} students</Text>
+                            </View>
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>Current Speed:</Text>
+                                <Text style={styles.detailValue}>{selectedBus.speed} mph</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.detailSection}>
+                            <Text style={styles.sectionTitle}>Students on Board</Text>
+                            <ScrollView style={styles.studentList}>
+                                {selectedBus.students.length > 0 ? (
+                                    selectedBus.students.map((student, index) => (
+                                        <View key={index} style={styles.studentItem}>
+                                            <Ionicons name="person" size={16} color="#666" />
+                                            <Text style={styles.studentName}>{student}</Text>
+                                        </View>
+                                    ))
+                                ) : (
+                                    <Text style={styles.emptyMessage}>No students currently on board</Text>
+                                )}
+                            </ScrollView>
+                        </View>
+
+                        <TouchableOpacity
+                            style={styles.trackButton}
+                            onPress={() => {
+                                setShowBusDetails(false);
+                                setActiveTab('map');
+                            }}
+                        >
+                            <Text style={styles.trackButtonText}>Track on Map</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+        );
+    };
+
+    const renderContent = () => {
+        switch (activeTab) {
+            case 'map':
+                return (
+                    <View style={styles.mapContainer}>
+                        <MapboxGL.MapView
+                            ref={mapRef}
+                            style={styles.map}
+                            styleURL={`https://api.maptiler.com/maps/streets/style.json?key=${MAPTILER_API_KEY}`}
+                        >
+                            <MapboxGL.Camera
+                                zoomLevel={zoomLevel}
+                                centerCoordinate={mapCenter}
+                                animationDuration={1000}
+                            />
+                            {renderBusMarkers()}
+                            {renderSchoolMarkers()}
+                        </MapboxGL.MapView>
+                    </View>
+                );
+            case 'buses':
+                return (
+                    <ScrollView style={styles.busList}>
+                        {BUSES.map(bus => renderBusItem(bus))}
+                    </ScrollView>
+                );
+            case 'alerts':
+                return (
+                    <View style={styles.alertsContainer}>
+                        <View style={styles.alertItem}>
+                            <View style={[styles.alertIcon, { backgroundColor: '#FF3B30' }]}>
+                                <MaterialIcons name="warning" size={20} color="#FFF" />
+                            </View>
+                            <View style={styles.alertContent}>
+                                <Text style={styles.alertTitle}>Bus #2 Delayed</Text>
+                                <Text style={styles.alertMessage}>
+                                    Bus #2 is delayed by approximately 15 minutes due to traffic on Main St.
+                                </Text>
+                                <Text style={styles.alertTime}>20 minutes ago</Text>
+                            </View>
+                        </View>
+                        <View style={styles.alertItem}>
+                            <View style={[styles.alertIcon, { backgroundColor: '#34C759' }]}>
+                                <MaterialIcons name="notifications" size={20} color="#FFF" />
+                            </View>
+                            <View style={styles.alertContent}>
+                                <Text style={styles.alertTitle}>Route Change</Text>
+                                <Text style={styles.alertMessage}>
+                                    Bus #1 route modified to avoid construction on Oak Avenue.
+                                </Text>
+                                <Text style={styles.alertTime}>1 hour ago</Text>
+                            </View>
+                        </View>
+                        <View style={styles.alertItem}>
+                            <View style={[styles.alertIcon, { backgroundColor: '#007AFF' }]}>
+                                <MaterialIcons name="info" size={20} color="#FFF" />
+                            </View>
+                            <View style={styles.alertContent}>
+                                <Text style={styles.alertTitle}>Weather Advisory</Text>
+                                <Text style={styles.alertMessage}>
+                                    Expect delays this afternoon due to predicted heavy rainfall.
+                                </Text>
+                                <Text style={styles.alertTime}>3 hours ago</Text>
+                            </View>
+                        </View>
+                    </View>
+                );
+            default:
+                return null;
+        }
+    };
+
+    return (
+        <SafeAreaView style={styles.safeArea}>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <View style={styles.headerContent}>
+                        <FontAwesome5 name="bus-school" size={24} color="#007AFF" />
+                        <Text style={styles.headerTitle}>School Bus Tracker</Text>
+                    </View>
+                </View>
+
+                {renderContent()}
+                {renderBusDetailModal()}
+
+                <View style={styles.bottomTabs}>
+                    <TouchableOpacity
+                        style={[styles.tab, activeTab === 'map' && styles.activeTab]}
+                        onPress={() => setActiveTab('map')}
+                    >
+                        <MaterialIcons
+                            name="map"
+                            size={24}
+                            color={activeTab === 'map' ? '#007AFF' : '#8E8E93'}
+                        />
+                        <Text style={[styles.tabText, activeTab === 'map' && styles.activeTabText]}>Map</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={[styles.tab, activeTab === 'buses' && styles.activeTab]}
+                        onPress={() => setActiveTab('buses')}
+                    >
+                        <FontAwesome5
+                            name="bus"
+                            size={20}
+                            color={activeTab === 'buses' ? '#007AFF' : '#8E8E93'}
+                        />
+                        <Text style={[styles.tabText, activeTab === 'buses' && styles.activeTabText]}>Buses</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={[styles.tab, activeTab === 'alerts' && styles.activeTab]}
+                        onPress={() => setActiveTab('alerts')}
+                    >
+                        <MaterialIcons
+                            name="notifications"
+                            size={24}
+                            color={activeTab === 'alerts' ? '#007AFF' : '#8E8E93'}
+                        />
+                        <Text style={[styles.tabText, activeTab === 'alerts' && styles.activeTabText]}>Alerts</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </SafeAreaView>
+    );
+};
+
+const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        backgroundColor: '#F2F2F7',
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    },
+    container: {
+        flex: 1,
+    },
+    header: {
+        height: 60,
+        backgroundColor: '#FFF',
+        borderBottomWidth: 1,
+        borderBottomColor: '#E5E5EA',
+        justifyContent: 'center',
+        paddingHorizontal: 16,
+    },
+    headerContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    headerTitle: {
+        fontSize: 18,
+        fontWeight: '600',
+        marginLeft: 10,
+        color: '#000',
+    },
+    mapContainer: {
+        flex: 1,
+    },
+    map: {
+        flex: 1,
+    },
+    markerContainer: {
+        height: 40,
+        width: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    marker: {
+        height: 32,
+        width: 32,
+        borderRadius: 16,
+        backgroundColor: '#007AFF',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 2,
+        borderColor: '#FFFFFF',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    schoolMarkerContainer: {
+        height: 40,
+        width: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    schoolMarker: {
+        height: 32,
+        width: 32,
+        borderRadius: 16,
+        backgroundColor: '#5856D6',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 2,
+        borderColor: '#FFFFFF',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    busList: {
+        flex: 1,
+        backgroundColor: '#F2F2F7',
+    },
+    busItem: {
+        backgroundColor: '#FFF',
+        borderRadius: 12,
+        marginHorizontal: 16,
+        marginTop: 16,
+        padding: 16,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    busItemHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    busIconContainer: {
+        position: 'relative',
+        marginRight: 12,
+    },
+    statusIndicator: {
+        position: 'absolute',
+        bottom: -2,
+        right: -2,
+        width: 12,
+        height: 12,
+        borderRadius: 6,
+        borderWidth: 2,
+        borderColor: '#FFF',
+    },
+    busInfo: {
+        flex: 1,
+    },
+    busName: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#000',
+    },
+    routeName: {
+        fontSize: 14,
+        color: '#666',
+        marginTop: 2,
+    },
+    busStatus: {
+        marginLeft: 'auto',
+    },
+    statusText: {
+        fontSize: 12,
+        fontWeight: '500',
+        color: '#FFF',
+        paddingHorizontal: 8,
+        paddingVertical: 4,
+        borderRadius: 10,
+        overflow: 'hidden',
+    },
+    busItemDetails: {
+        marginTop: 12,
+        paddingTop: 12,
+        borderTopWidth: 1,
+        borderTopColor: '#E5E5EA',
+    },
+    detailRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 6,
+    },
+    detailText: {
+        marginLeft: 8,
+        fontSize: 14,
+        color: '#333',
+    },
+    bottomTabs: {
+        flexDirection: 'row',
+        height: 60,
+        backgroundColor: '#FFF',
+        borderTopWidth: 1,
+        borderTopColor: '#E5E5EA',
+    },
+    tab: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    activeTab: {
+        borderTopWidth: 2,
+        borderTopColor: '#007AFF',
+    },
+    tabText: {
+        fontSize: 12,
+        marginTop: 2,
+        color: '#8E8E93',
+    },
+    activeTabText: {
+        color: '#007AFF',
+    },
+    modalContainer: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1000,
+    },
+    modalContent: {
+        width: '90%',
+        maxHeight: '80%',
+        backgroundColor: '#FFF',
+        borderRadius: 12,
+        overflow: 'hidden',
+    },
+    modalHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: '#E5E5EA',
+    },
+    modalTitle: {
+        fontSize: 18,
+        fontWeight: '600',
+        color: '#000',
+    },
+    closeButton: {
+        padding: 4,
+    },
+    busDetailsContainer: {
+        padding: 16,
+    },
+    busStatusHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
+    busHeaderInfo: {
+        marginLeft: 16,
+        flex: 1,
+    },
+    busDetailName: {
+        fontSize: 20,
+        fontWeight: '600',
+        color: '#000',
+    },
+    statusBadge: {
+        backgroundColor: '#007AFF',
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        borderRadius: 12,
+        alignSelf: 'flex-start',
+        marginTop: 4,
+    },
+    statusBadgeText: {
+        color: '#FFF',
+        fontSize: 12,
+        fontWeight: '500',
+    },
+    detailSection: {
+        marginBottom: 16,
+    },
+    sectionTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#000',
+        marginBottom: 8,
+    },
+    detailItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 6,
+    },
+    detailLabel: {
+        width: 100,
+        fontSize: 14,
+        color: '#666',
+    },
+    detailValue: {
+        flex: 1,
+        fontSize: 14,
+        color: '#000',
+    },
+    studentList: {
+        maxHeight: 120,
+    },
+    studentItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingVertical: 6,
+        borderBottomWidth: 1,
+        borderBottomColor: '#E5E5EA',
+    },
+    studentName: {
+        marginLeft: 8,
+        fontSize: 14,
+        color: '#000',
+    },
+    emptyMessage: {
+        color: '#8E8E93',
+        fontStyle: 'italic',
+        textAlign: 'center',
+        paddingVertical: 12,
+    },
+    trackButton: {
+        backgroundColor: '#007AFF',
+        borderRadius: 12,
+        padding: 14,
+        alignItems: 'center',
+        marginTop: 16,
+    },
+    trackButtonText: {
+        color: '#FFF',
+        fontSize: 16,
+        fontWeight: '600',
+    },
+    alertsContainer: {
+        flex: 1,
+        backgroundColor: '#F2F2F7',
+        padding: 16,
+    },
+    alertItem: {
+        flexDirection: 'row',
+        backgroundColor: '#FFF',
+        borderRadius: 12,
+        padding: 16,
+        marginBottom: 16,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    alertIcon: {
+        width: 36,
+        height: 36,
+        borderRadius: 18,
+        backgroundColor: '#FF3B30',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 12,
+    },
+    alertContent: {
+        flex: 1,
+    },
+    alertTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#000',
+        marginBottom: 4,
+    },
+    alertMessage: {
+        fontSize: 14,
+        color: '#333',
+        marginBottom: 8,
+    },
+    alertTime: {
+        fontSize: 12,
+        color: '#8E8E93',
+    },
+});
+
+export default SchoolBusTrackingApp;
+

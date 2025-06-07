@@ -1,11 +1,13 @@
-import { View, Text } from 'react-native'
+import { View, Text, StatusBar, SafeAreaView } from 'react-native'
 import React from 'react'
+import Leaflet from '@/components/Leaflet'
 
 const index = () => {
     return (
-        <View>
-            <Text>index</Text>
-        </View>
+        <>
+            <StatusBar hidden />
+            <Leaflet />
+        </>
     )
 }
 
