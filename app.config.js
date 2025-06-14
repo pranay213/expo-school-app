@@ -13,6 +13,9 @@ export default {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "com.pranay.schoolapptracking",
+      infoPlist: {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     android: {
       adaptiveIcon: {

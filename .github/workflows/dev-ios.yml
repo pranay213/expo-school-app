@@ -1,4 +1,3 @@
-
 name: Build iOS Simulator App
 
 on:
@@ -15,30 +14,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Set up Node.js (use Node 20 for compatibility)
+      # Set up Node.js (Node 20 for compatibility)
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      # Install dependencies
+      # Install npm dependencies
       - name: Install npm dependencies
         run: npm install
+        working-directory: .
 
       # Install Expo CLI and EAS CLI
       - name: Install Expo CLI and EAS CLI
         run: npm install -g expo-cli eas-cli
 
-      # Install CocoaPods
-      - name: Install CocoaPods
+      # Install CocoaPods and run pod install
+      - name: Install CocoaPods and dependencies
         run: |
           sudo gem install cocoapods
           cd ios
           pod install --repo-update
-        working-directory: ./school-app-tracking
+        working-directory: .
 
-      # Update app.config.js or app.json
+      # Update app.config.js
       - name: Configure app.config.js
         run: |
           cat <<EOT > app.config.js
@@ -65,18 +65,18 @@ jobs:
             ]
           };
           EOT
-        working-directory: ./school-app-tracking
+        working-directory: .
 
       # Clean and generate iOS project
       - name: Generate iOS project
         run: npx expo prebuild --clean --platform ios
-        working-directory: ./school-app-tracking
+        working-directory: .
 
       # Build for iOS Simulator
       - name: Build iOS Simulator app
         run: |
           npx expo run:ios --configuration Debug --scheme school-app-tracking --device "iPhone 16"
-        working-directory: ./school-app-tracking
+        working-directory: .
         env:
           EXPO_NO_TELEMETRY: 1
 
