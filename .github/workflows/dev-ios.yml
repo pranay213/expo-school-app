@@ -1,0 +1,92 @@
+
+name: Build iOS Simulator App
+
+on:
+  push:
+    branches:
+      - dev-ios-build
+  pull_request:
+    branches:
+      - dev-ios-build
+
+jobs:
+  build-ios-simulator:
+    runs-on: macos-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Node.js (use Node 20 for compatibility)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Install dependencies
+      - name: Install npm dependencies
+        run: npm install
+
+      # Install Expo CLI and EAS CLI
+      - name: Install Expo CLI and EAS CLI
+        run: npm install -g expo-cli eas-cli
+
+      # Install CocoaPods
+      - name: Install CocoaPods
+        run: |
+          sudo gem install cocoapods
+          cd ios
+          pod install --repo-update
+        working-directory: ./school-app-tracking
+
+      # Update app.config.js or app.json
+      - name: Configure app.config.js
+        run: |
+          cat <<EOT > app.config.js
+          module.exports = {
+            name: "school-app-tracking",
+            ios: {
+              bundleIdentifier: "com.pranay.schoolapptracking",
+              infoPlist: {
+                ITSAppUsesNonExemptEncryption: false
+              }
+            },
+            plugins: [
+              "expo-router",
+              [
+                "expo-splash-screen",
+                {
+                  "image": "./assets/images/splash-icon.png",
+                  "imageWidth": 200,
+                  "resizeMode": "contain",
+                  "backgroundColor": "#ffffff"
+                }
+              ],
+              "expo-dev-client"
+            ]
+          };
+          EOT
+        working-directory: ./school-app-tracking
+
+      # Clean and generate iOS project
+      - name: Generate iOS project
+        run: npx expo prebuild --clean --platform ios
+        working-directory: ./school-app-tracking
+
+      # Build for iOS Simulator
+      - name: Build iOS Simulator app
+        run: |
+          npx expo run:ios --configuration Debug --scheme school-app-tracking --device "iPhone 16"
+        working-directory: ./school-app-tracking
+        env:
+          EXPO_NO_TELEMETRY: 1
+
+      # Find and upload .app file
+      - name: Upload .app artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-simulator-app
+          path: ~/Library/Developer/Xcode/DerivedData/*/Build/Products/Debug-iphonesimulator/*.app
+          retention-days: 7
