@@ -1,0 +1,1 @@
+../../../../../node_modules/@maplibre/maplibre-react-native/ios/MLRN/MLRNImagesManager.h

@@ -1,67 +1,18 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, StyleSheet, Button, requireNativeComponent, Platform } from 'react-native';
-import OlaMap from './NativeModuleWrapper';
+import { View } from 'react-native';
+import MapView from 'react-native-ola-maps';
 
-// Import the native OlaMapView component
-const NativeOlaMapView = requireNativeComponent('OlaMapView');
-
-const OlaMapView = ({ apiKey }) => {
-    const [error, setError] = useState(null);
-
-    if (Platform.OS !== 'android') {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.error}>OlaMapSdk is only available on Android</Text>
-            </View>
-        );
-    }
-
+export default function OlaMapsView() {
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Ola Map SDK</Text>
-
-            {error && <Text style={styles.error}>{error}</Text>}
-
-            <View style={styles.mapContainer}>
-                <NativeOlaMapView
-                    style={styles.map}
-                    apiKey={apiKey}
-                    centerCoordinate="12.9716,77.5946" // Default: Bangalore
-                    zoomLevel={15}
-                />
-            </View>
+        <View style={{ flex: 1, backgroundColor: 'tomato' }}>
+            <MapView
+                initialRegion={{
+                    latitude: 22.303894,
+                    longitude: 70.802162,
+                    altitude: 5,
+                    zoomLevel: 10,
+                }}
+                tileUrl="https://api.olamaps.io/tiles/vector/v1/styles/default-light-standard/style.json?key=0.4.0"
+            />
         </View>
     );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        padding: 20,
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 20,
-    },
-    mapContainer: {
-        width: '100%',
-        height: 400,
-        marginVertical: 20,
-        borderRadius: 8,
-        overflow: 'hidden',
-    },
-    map: {
-        ...StyleSheet.absoluteFillObject,
-    },
-    error: {
-        color: 'red',
-        marginVertical: 10,
-        textAlign: 'center',
-    },
-});
-
-export default OlaMapView;
-
-export default OlaMapView;
+}

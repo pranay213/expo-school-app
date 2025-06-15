@@ -1,0 +1,6 @@
+module Pods_schoolapptracking {
+  umbrella header "Pods-schoolapptracking-umbrella.h"
+
+  export *
+  module * { export * }
+}

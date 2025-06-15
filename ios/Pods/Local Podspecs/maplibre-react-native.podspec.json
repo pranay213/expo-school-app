@@ -1,0 +1,26 @@
+{
+  "name": "maplibre-react-native",
+  "summary": "React Native library for creating maps with MapLibre Native",
+  "version": "10.1.4",
+  "authors": {
+    "MapLibre": ""
+  },
+  "homepage": "https://github.com/maplibre/maplibre-react-native",
+  "source": {
+    "git": "https://github.com/maplibre/maplibre-react-native.git"
+  },
+  "license": "MIT",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "dependencies": {
+    "React-Core": [],
+    "React": []
+  },
+  "subspecs": [
+    {
+      "name": "DynamicLibrary",
+      "source_files": "ios/MLRN/**/*.{h,m}"
+    }
+  ]
+}

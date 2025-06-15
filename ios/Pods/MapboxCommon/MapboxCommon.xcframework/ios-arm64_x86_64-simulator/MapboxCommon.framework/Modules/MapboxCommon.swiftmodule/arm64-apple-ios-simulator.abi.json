@@ -1,0 +1,1498 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "MapboxCommon_Private",
+        "printedName": "MapboxCommon_Private",
+        "declKind": "Import",
+        "moduleName": "MapboxCommon",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MapboxCommon_Private",
+        "printedName": "MapboxCommon_Private",
+        "declKind": "Import",
+        "moduleName": "MapboxCommon",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MapboxCommon_Private",
+        "printedName": "MapboxCommon_Private",
+        "declKind": "Import",
+        "moduleName": "MapboxCommon",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MapboxCommon"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SettingsServiceError",
+        "printedName": "SettingsServiceError",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(description:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SettingsServiceError",
+                "printedName": "MapboxCommon.SettingsServiceError",
+                "usr": "s:12MapboxCommon20SettingsServiceErrorV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12MapboxCommon20SettingsServiceErrorV11descriptionACSS_tcfc",
+            "mangledName": "$s12MapboxCommon20SettingsServiceErrorV11descriptionACSS_tcfc",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SettingsServiceError",
+                "printedName": "MapboxCommon.SettingsServiceError",
+                "usr": "s:12MapboxCommon20SettingsServiceErrorV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SettingsServiceError",
+                "printedName": "MapboxCommon.SettingsServiceError",
+                "usr": "s:12MapboxCommon20SettingsServiceErrorV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12MapboxCommon20SettingsServiceErrorV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s12MapboxCommon20SettingsServiceErrorV2eeoiySbAC_ACtFZ",
+            "moduleName": "MapboxCommon",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12MapboxCommon20SettingsServiceErrorV16errorDescriptionSSSgvp",
+            "mangledName": "$s12MapboxCommon20SettingsServiceErrorV16errorDescriptionSSSgvp",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12MapboxCommon20SettingsServiceErrorV16errorDescriptionSSSgvg",
+                "mangledName": "$s12MapboxCommon20SettingsServiceErrorV16errorDescriptionSSSgvg",
+                "moduleName": "MapboxCommon",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:12MapboxCommon20SettingsServiceErrorV",
+        "mangledName": "$s12MapboxCommon20SettingsServiceErrorV",
+        "moduleName": "MapboxCommon",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SettingsServiceInterface",
+        "printedName": "SettingsServiceInterface",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "set",
+            "printedName": "set(key:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<(), MapboxCommon.SettingsServiceError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SettingsServiceError",
+                    "printedName": "MapboxCommon.SettingsServiceError",
+                    "usr": "s:12MapboxCommon20SettingsServiceErrorV"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12MapboxCommon24SettingsServiceInterfaceP3set3key5values6ResultOyytAA0cD5ErrorVGSS_qd__tlF",
+            "mangledName": "$s12MapboxCommon24SettingsServiceInterfaceP3set3key5values6ResultOyytAA0cD5ErrorVGSS_qd__tlF",
+            "moduleName": "MapboxCommon",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : MapboxCommon.SettingsServiceInterface>",
+            "sugared_genericSig": "<Self, T where Self : MapboxCommon.SettingsServiceInterface>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "get",
+            "printedName": "get(key:type:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<τ_1_0, MapboxCommon.SettingsServiceError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SettingsServiceError",
+                    "printedName": "MapboxCommon.SettingsServiceError",
+                    "usr": "s:12MapboxCommon20SettingsServiceErrorV"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_1_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12MapboxCommon24SettingsServiceInterfaceP3get3key4types6ResultOyqd__AA0cD5ErrorVGSS_qd__mtlF",
+            "mangledName": "$s12MapboxCommon24SettingsServiceInterfaceP3get3key4types6ResultOyqd__AA0cD5ErrorVGSS_qd__mtlF",
+            "moduleName": "MapboxCommon",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : MapboxCommon.SettingsServiceInterface>",
+            "sugared_genericSig": "<Self, T where Self : MapboxCommon.SettingsServiceInterface>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "get",
+            "printedName": "get(key:type:defaultValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<τ_1_0, MapboxCommon.SettingsServiceError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SettingsServiceError",
+                    "printedName": "MapboxCommon.SettingsServiceError",
+                    "usr": "s:12MapboxCommon20SettingsServiceErrorV"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_1_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_1_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12MapboxCommon24SettingsServiceInterfaceP3get3key4type12defaultValues6ResultOyqd__AA0cD5ErrorVGSS_qd__mqd__tlF",
+            "mangledName": "$s12MapboxCommon24SettingsServiceInterfaceP3get3key4type12defaultValues6ResultOyqd__AA0cD5ErrorVGSS_qd__mqd__tlF",
+            "moduleName": "MapboxCommon",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : MapboxCommon.SettingsServiceInterface>",
+            "sugared_genericSig": "<Self, T where Self : MapboxCommon.SettingsServiceInterface>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "erase",
+            "printedName": "erase(key:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<(), MapboxCommon.SettingsServiceError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SettingsServiceError",
+                    "printedName": "MapboxCommon.SettingsServiceError",
+                    "usr": "s:12MapboxCommon20SettingsServiceErrorV"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12MapboxCommon24SettingsServiceInterfaceP5erase3keys6ResultOyytAA0cD5ErrorVGSS_tF",
+            "mangledName": "$s12MapboxCommon24SettingsServiceInterfaceP5erase3keys6ResultOyytAA0cD5ErrorVGSS_tF",
+            "moduleName": "MapboxCommon",
+            "genericSig": "<τ_0_0 where τ_0_0 : MapboxCommon.SettingsServiceInterface>",
+            "sugared_genericSig": "<Self where Self : MapboxCommon.SettingsServiceInterface>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "has",
+            "printedName": "has(key:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<Swift.Bool, MapboxCommon.SettingsServiceError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SettingsServiceError",
+                    "printedName": "MapboxCommon.SettingsServiceError",
+                    "usr": "s:12MapboxCommon20SettingsServiceErrorV"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12MapboxCommon24SettingsServiceInterfaceP3has3keys6ResultOySbAA0cD5ErrorVGSS_tF",
+            "mangledName": "$s12MapboxCommon24SettingsServiceInterfaceP3has3keys6ResultOySbAA0cD5ErrorVGSS_tF",
+            "moduleName": "MapboxCommon",
+            "genericSig": "<τ_0_0 where τ_0_0 : MapboxCommon.SettingsServiceInterface>",
+            "sugared_genericSig": "<Self where Self : MapboxCommon.SettingsServiceInterface>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:12MapboxCommon24SettingsServiceInterfaceP",
+        "mangledName": "$s12MapboxCommon24SettingsServiceInterfaceP",
+        "moduleName": "MapboxCommon",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DownloadError",
+        "printedName": "DownloadError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So16MBXDownloadErrorC12MapboxCommonE16errorDescriptionSSSgvp",
+            "mangledName": "$sSo16MBXDownloadErrorC12MapboxCommonE16errorDescriptionSSSgvp",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So16MBXDownloadErrorC12MapboxCommonE16errorDescriptionSSSgvg",
+                "mangledName": "$sSo16MBXDownloadErrorC12MapboxCommonE16errorDescriptionSSSgvg",
+                "moduleName": "MapboxCommon",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)MBXDownloadError",
+        "moduleName": "MapboxCommon",
+        "isOpen": true,
+        "objc_name": "MBXDownloadError",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DownloadStatus",
+        "printedName": "DownloadStatus",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(downloadId:state:error:totalBytes:receivedBytes:transferredBytes:downloadOptions:httpResult:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DownloadStatus",
+                "printedName": "MapboxCommon.DownloadStatus",
+                "usr": "c:objc(cs)MBXDownloadStatus"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DownloadState",
+                "printedName": "MapboxCommon.DownloadState",
+                "usr": "c:@E@MBXDownloadState"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MapboxCommon.DownloadError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DownloadError",
+                    "printedName": "MapboxCommon.DownloadError",
+                    "usr": "c:objc(cs)MBXDownloadError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.UInt64?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DownloadOptions",
+                "printedName": "MapboxCommon.DownloadOptions",
+                "usr": "c:objc(cs)MBXDownloadOptions"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HttpResponseData",
+                        "printedName": "MapboxCommon.HttpResponseData",
+                        "usr": "c:objc(cs)MBXHttpResponseData"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HttpRequestError",
+                        "printedName": "MapboxCommon.HttpRequestError",
+                        "usr": "c:objc(cs)MBXHttpRequestError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:So17MBXDownloadStatusC12MapboxCommonE10downloadId5state5error10totalBytes08receivedJ0011transferredJ00E7Options10httpResultABs6UInt64V_So0A5StateVSo0A5ErrorCSgAMSgA2MSo0aM0Cs0O0OySo19MBXHttpResponseDataCSo0s7RequestR0CGSgtcfc",
+            "mangledName": "$sSo17MBXDownloadStatusC12MapboxCommonE10downloadId5state5error10totalBytes08receivedJ0011transferredJ00E7Options10httpResultABs6UInt64V_So0A5StateVSo0A5ErrorCSgAMSgA2MSo0aM0Cs0O0OySo19MBXHttpResponseDataCSo0s7RequestR0CGSgtcfc",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(error:totalBytes:downloadOptions:httpResult:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DownloadStatus",
+                "printedName": "MapboxCommon.DownloadStatus",
+                "usr": "c:objc(cs)MBXDownloadStatus"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MapboxCommon.DownloadError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DownloadError",
+                    "printedName": "MapboxCommon.DownloadError",
+                    "usr": "c:objc(cs)MBXDownloadError"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.UInt64?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DownloadOptions",
+                "printedName": "MapboxCommon.DownloadOptions",
+                "usr": "c:objc(cs)MBXDownloadOptions"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HttpResponseData",
+                        "printedName": "MapboxCommon.HttpResponseData",
+                        "usr": "c:objc(cs)MBXHttpResponseData"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HttpRequestError",
+                        "printedName": "MapboxCommon.HttpRequestError",
+                        "usr": "c:objc(cs)MBXHttpRequestError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:So17MBXDownloadStatusC12MapboxCommonE5error10totalBytes15downloadOptions10httpResultABSo0A5ErrorCSg_s6UInt64VSgSo0aI0Cs0K0OySo19MBXHttpResponseDataCSo0n7RequestL0CGSgtcfc",
+            "mangledName": "$sSo17MBXDownloadStatusC12MapboxCommonE5error10totalBytes15downloadOptions10httpResultABSo0A5ErrorCSg_s6UInt64VSgSo0aI0Cs0K0OySo19MBXHttpResponseDataCSo0n7RequestL0CGSgtcfc",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Var",
+            "name": "httpResult",
+            "printedName": "httpResult",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HttpResponseData",
+                        "printedName": "MapboxCommon.HttpResponseData",
+                        "usr": "c:objc(cs)MBXHttpResponseData"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HttpRequestError",
+                        "printedName": "MapboxCommon.HttpRequestError",
+                        "usr": "c:objc(cs)MBXHttpRequestError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So17MBXDownloadStatusC12MapboxCommonE10httpResults0F0OySo19MBXHttpResponseDataCSo0G12RequestErrorCGSgvp",
+            "mangledName": "$sSo17MBXDownloadStatusC12MapboxCommonE10httpResults0F0OySo19MBXHttpResponseDataCSo0G12RequestErrorCGSgvp",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Result",
+                        "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "HttpResponseData",
+                            "printedName": "MapboxCommon.HttpResponseData",
+                            "usr": "c:objc(cs)MBXHttpResponseData"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "HttpRequestError",
+                            "printedName": "MapboxCommon.HttpRequestError",
+                            "usr": "c:objc(cs)MBXHttpRequestError"
+                          }
+                        ],
+                        "usr": "s:s6ResultO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So17MBXDownloadStatusC12MapboxCommonE10httpResults0F0OySo19MBXHttpResponseDataCSo0G12RequestErrorCGSgvg",
+                "mangledName": "$sSo17MBXDownloadStatusC12MapboxCommonE10httpResults0F0OySo19MBXHttpResponseDataCSo0G12RequestErrorCGSgvg",
+                "moduleName": "MapboxCommon",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "totalBytes",
+            "printedName": "totalBytes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.UInt64?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So17MBXDownloadStatusC12MapboxCommonE10totalBytess6UInt64VSgvp",
+            "mangledName": "$sSo17MBXDownloadStatusC12MapboxCommonE10totalBytess6UInt64VSgvp",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.UInt64?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt64",
+                        "printedName": "Swift.UInt64",
+                        "usr": "s:s6UInt64V"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So17MBXDownloadStatusC12MapboxCommonE10totalBytess6UInt64VSgvg",
+                "mangledName": "$sSo17MBXDownloadStatusC12MapboxCommonE10totalBytess6UInt64VSgvg",
+                "moduleName": "MapboxCommon",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)MBXDownloadStatus",
+        "moduleName": "MapboxCommon",
+        "isOpen": true,
+        "objc_name": "MBXDownloadStatus",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "HttpRequestError",
+        "printedName": "HttpRequestError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So19MBXHttpRequestErrorC12MapboxCommonE16errorDescriptionSSSgvp",
+            "mangledName": "$sSo19MBXHttpRequestErrorC12MapboxCommonE16errorDescriptionSSSgvp",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So19MBXHttpRequestErrorC12MapboxCommonE16errorDescriptionSSSgvg",
+                "mangledName": "$sSo19MBXHttpRequestErrorC12MapboxCommonE16errorDescriptionSSSgvg",
+                "moduleName": "MapboxCommon",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)MBXHttpRequestError",
+        "moduleName": "MapboxCommon",
+        "isOpen": true,
+        "objc_name": "MBXHttpRequestError",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "HttpResponse",
+        "printedName": "HttpResponse",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(request:result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "HttpResponse",
+                "printedName": "MapboxCommon.HttpResponse",
+                "usr": "c:objc(cs)MBXHttpResponse"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "HttpRequest",
+                "printedName": "MapboxCommon.HttpRequest",
+                "usr": "c:objc(cs)MBXHttpRequest"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "HttpResponseData",
+                    "printedName": "MapboxCommon.HttpResponseData",
+                    "usr": "c:objc(cs)MBXHttpResponseData"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "HttpRequestError",
+                    "printedName": "MapboxCommon.HttpRequestError",
+                    "usr": "c:objc(cs)MBXHttpRequestError"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:So15MBXHttpResponseC12MapboxCommonE7request6resultABSo0A7RequestC_s6ResultOySo0aB4DataCSo0aG5ErrorCGtcfc",
+            "mangledName": "$sSo15MBXHttpResponseC12MapboxCommonE7request6resultABSo0A7RequestC_s6ResultOySo0aB4DataCSo0aG5ErrorCGtcfc",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Var",
+            "name": "result",
+            "printedName": "result",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "HttpResponseData",
+                    "printedName": "MapboxCommon.HttpResponseData",
+                    "usr": "c:objc(cs)MBXHttpResponseData"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "HttpRequestError",
+                    "printedName": "MapboxCommon.HttpRequestError",
+                    "usr": "c:objc(cs)MBXHttpRequestError"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So15MBXHttpResponseC12MapboxCommonE6results6ResultOySo0aB4DataCSo0A12RequestErrorCGvp",
+            "mangledName": "$sSo15MBXHttpResponseC12MapboxCommonE6results6ResultOySo0aB4DataCSo0A12RequestErrorCGvp",
+            "moduleName": "MapboxCommon",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HttpResponseData",
+                        "printedName": "MapboxCommon.HttpResponseData",
+                        "usr": "c:objc(cs)MBXHttpResponseData"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HttpRequestError",
+                        "printedName": "MapboxCommon.HttpRequestError",
+                        "usr": "c:objc(cs)MBXHttpRequestError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So15MBXHttpResponseC12MapboxCommonE6results6ResultOySo0aB4DataCSo0A12RequestErrorCGvg",
+                "mangledName": "$sSo15MBXHttpResponseC12MapboxCommonE6results6ResultOySo0aB4DataCSo0A12RequestErrorCGvg",
+                "moduleName": "MapboxCommon",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)MBXHttpResponse",
+        "moduleName": "MapboxCommon",
+        "isOpen": true,
+        "objc_name": "MBXHttpResponse",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SettingsServiceFactory",
+        "printedName": "SettingsServiceFactory",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "getInstance",
+            "printedName": "getInstance(storageType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SettingsServiceInterface",
+                "printedName": "MapboxCommon.SettingsServiceInterface",
+                "usr": "s:12MapboxCommon24SettingsServiceInterfaceP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SettingsServiceStorageType",
+                "printedName": "MapboxCommon.SettingsServiceStorageType",
+                "usr": "c:@E@MBXSettingsServiceStorageType"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So25MBXSettingsServiceFactoryC12MapboxCommonE11getInstance11storageTypeAC08SettingsB9Interface_pSo0ab7StorageI0V_tFZ",
+            "mangledName": "$sSo25MBXSettingsServiceFactoryC12MapboxCommonE11getInstance11storageTypeAC08SettingsB9Interface_pSo0ab7StorageI0V_tFZ",
+            "moduleName": "MapboxCommon",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)MBXSettingsServiceFactory",
+        "moduleName": "MapboxCommon",
+        "isOpen": true,
+        "objc_name": "MBXSettingsServiceFactory",
+        "declAttributes": [
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

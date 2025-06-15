@@ -1,12 +1,12 @@
 import { View, Text, StatusBar, SafeAreaView } from 'react-native'
 import React from 'react'
-import Leaflet from '@/components/Leaflet'
+import OlaMapsView from '@/components/OlaMapVIew'
 
 const index = () => {
     return (
         <>
             <StatusBar hidden />
-            <Leaflet />
+            <OlaMapsView />
         </>
     )
 }

@@ -1,0 +1,6 @@
+module ExpoMaps {
+  umbrella header "ExpoMaps-umbrella.h"
+
+  export *
+  module * { export * }
+}
